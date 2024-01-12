@@ -1,0 +1,957 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyNSA3vlqSwx4jPUsR31oR2N",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/naro-naro/Colab/blob/main/230922.py\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# 컬렉션 자료형\n",
+        "* 리스트 [ ]\n",
+        "* 튜플 ( )\n",
+        "* 딕셔너리 { key:value, ... }\n",
+        "* 세트 { }"
+      ],
+      "metadata": {
+        "id": "3uT-cLXObAGV"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# 리스트\n",
+        "\n",
+        "* 인덱싱\n",
+        "* 슬라이싱\n",
+        "* 삽입, 삭제, 수정\n",
+        "\n"
+      ],
+      "metadata": {
+        "id": "YHRXw7iRbTCU"
+      }
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "ZikovvsoKrEW",
+        "outputId": "5c180aa6-ce9d-410e-ba6b-12b272541671"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "월\n"
+          ]
+        }
+      ],
+      "source": [
+        "# 리스트 인덱싱\n",
+        "num = ['월', '화', '수']\n",
+        "print(num[0])"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# print(num[3])\n",
+        "# 인덱스 에러 : 범위를 넘어갔다\n",
+        "# IndexError: list index out of range"
+      ],
+      "metadata": {
+        "id": "1LDqYTRKbylV"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "num = [10, 20, 30]\n",
+        "print(num[2]/2-num[0])\n",
+        "# 30/2 - 10\n",
+        "# 15 -10"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "6rywa8nWcAad",
+        "outputId": "4edc3428-a4da-42cb-f22c-7747acdd7771"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "5.0\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(num[0]**2/num[1])\n",
+        "# 10^2 / 20\n",
+        "# 100 / 20"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "_Xol7Z7vcest",
+        "outputId": "b6bc781f-0e0f-428e-e1e1-a819819dd3d4"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "5.0\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# 리스트 슬라이싱\n",
+        "num = [10, 20, 30]\n",
+        "print(num[:]) # 전체 범위\n",
+        "print(num[1:]) # 1이상의 범위\n",
+        "print(num[::]) # 앞콜론-전체범위에서, 뒤콜론-2간격으로\n",
+        "print()\n",
+        "\n",
+        "\n",
+        "print(num[0:4]) # 전체범위 중 해당범위만 잘라내는 것이므로, 오류가 발생하지 않는다\n",
+        "print(num[-50:50])\n",
+        "print()\n",
+        "\n",
+        "\n",
+        "print(num[::-1]) # 전체범위 역순으로 출력\n",
+        "print(num[::-2]) # 전체범위를 역순으로 2간격으로 출력"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "BC_qU7d0c3tE",
+        "outputId": "6f1a887c-29e7-4845-ae67-0f057a5469cd"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[10, 20, 30]\n",
+            "[20, 30]\n",
+            "[10, 20, 30]\n",
+            "\n",
+            "[10, 20, 30]\n",
+            "[10, 20, 30]\n",
+            "\n",
+            "[30, 20, 10]\n",
+            "[30, 10]\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "num = [10, 20, 30]\n",
+        "print(num[-1]) # 가장 오른쪽값 출력"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "-xuQxXWQd5Qm",
+        "outputId": "247bc506-25a9-4441-b201-494c2209346b"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "30\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# 리스트 삽입 (append, insert, extend)\n",
+        "num = [10, 20, 30]\n",
+        "num.append(40) # 리스트 맨 뒤에 값 추가\n",
+        "print(num)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "ynDhZNITeL39",
+        "outputId": "be1c28a4-c99c-49e0-8490-ab64b0bdb558"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[10, 20, 30, 40]\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "num.append(['mon','tue']) # 리스트 맨 뒤에 값 추가\n",
+        "print(num)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "fsSzaVsEekL1",
+        "outputId": "a5e9c32b-5dc1-4e56-c351-7558b99a5083"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[10, 20, 30, 40, ['mon', 'tue']]\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(len(num))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "UWjTgPpLgTNu",
+        "outputId": "cda62c48-3b37-417b-ee59-d1721f419fa7"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "5\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(num[4])"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "ZaEh08VaggNG",
+        "outputId": "eac24e9e-5e09-4f79-ed1e-dd3e3912495a"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "['mon', 'tue']\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(num[4][0])\n",
+        "print(num[4][1])"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "obXHH-iBgikm",
+        "outputId": "f2f22ac9-ef0b-4af1-b7f5-90a5ebb11a7f"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "mon\n",
+            "tue\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "num.insert(1, 13) # (인덱스, 추가할값)\n",
+        "print(num)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "AVeJMdike09e",
+        "outputId": "a7b3ea33-5e23-4c0e-ab3e-14bd246e0e41"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[10, 13, 20, 30, 40, ['mon', 'tue']]\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "num1 = [10, 20, 30]\n",
+        "num2 = ['mon','tue']\n",
+        "num1.extend(num1+num2)\n",
+        "print(num1)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "dObY_DQ3fgvG",
+        "outputId": "d9f0c0f3-7da4-4f3f-d21b-d0daafa166bb"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[10, 20, 30, 10, 20, 30, 'mon', 'tue']\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# 리스트 연결자\n",
+        "num1 = [10, 20, 30]\n",
+        "print(num1+num2)\n",
+        "# [10, 20, 30, 'mon', 'tue']\n",
+        "\n",
+        "print(num2*3)\n",
+        "# ['mon', 'tue', 'mon', 'tue', 'mon', 'tue']"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "H9K31W37hNJO",
+        "outputId": "43dfb012-1f74-4eee-ce55-1ba2d911db35"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[10, 20, 30, 'mon', 'tue']\n",
+            "['mon', 'tue', 'mon', 'tue', 'mon', 'tue']\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# 리스트 값 변경(수정)\n",
+        "num1 = [10, 20, 30]\n",
+        "num1[1] = 200\n",
+        "print(num1)\n",
+        "# [10, 200, 30]"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Ps0_mPpvhusn",
+        "outputId": "f8ff469c-1608-4719-9f62-046361f98043"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[10, 200, 30]\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# 리스트 삭제 (del, remove, pop)\n",
+        "my_list = [10, 13, 20, 30, 40, ['mon', 'tue']]\n",
+        "del my_list[-1] # 또는 [5]\n",
+        "# del은 인덱스 번호로 삭제한다\n",
+        "print(my_list)\n",
+        "# [10, 13, 20, 30, 40]"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "oo7Qx2RRiGk3",
+        "outputId": "bb11aaf2-9f8c-4543-a59f-474b2362c2ad"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[10, 13, 20, 30, 40]\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "my_list.remove(13)\n",
+        "# remove는 값 삭제\n",
+        "print(my_list)\n",
+        "# [10, 20, 30, 40]"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "ZLNNazX1izIG",
+        "outputId": "38889945-0f70-4dda-d5b5-a6b415dbfe86"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[10, 20, 30, 40]\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "my_list.pop()\n",
+        "# pop은 맨 뒤 값 하나를 내보낸다\n",
+        "print(my_list) # pop하고 남은 값\n",
+        "# [10, 20, 30]\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "KXwrFonWjHcn",
+        "outputId": "cc8f986e-9a67-43e3-c09e-1caef2c369f4"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[10, 20, 30]\n",
+            "[10, 30]\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "my_list.pop(1)\n",
+        "# 인덱스 번호를 이용해 원하는 위치의 값을 내보낼 수도 있다\n",
+        "print(my_list)\n",
+        "# [10, 30]"
+      ],
+      "metadata": {
+        "id": "Atm9grM1kw1H"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# 리스트 정렬 (오름차순, 내림차순, 역순)\n",
+        "a = [8,6,5,2,4]\n",
+        "\n",
+        "a.sort() # 오름차순 정렬\n",
+        "print(a)\n",
+        "# [2, 4, 5, 6, 8]"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "N8TwfcIVjxNg",
+        "outputId": "a950e364-f04c-468a-fd5d-c71327d3218b"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[2, 4, 5, 6, 8]\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "a = [8,6,5,2,4]\n",
+        "a.reverse() # 리스트 순서를 거꾸로\n",
+        "print(a)\n",
+        "# [4, 2, 5, 6, 8]"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Jpf7dPyNkNDv",
+        "outputId": "be24df39-d809-4679-d225-73a3f876a0e9"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[4, 2, 5, 6, 8]\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# 리스트 정렬 (오름차순, 내림차순, 역순)\n",
+        "a = [8,6,5,2,4]\n",
+        "\n",
+        "a.sort(reverse=True) # 내림차순 정렬\n",
+        "print(a)\n",
+        "# [8, 6, 5, 4, 2]"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "IcYQUgHCkgYn",
+        "outputId": "e9fb4968-120a-41cb-9c56-34ef6967bf6e"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[8, 6, 5, 4, 2]\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "a = [8,6,5,2,4]\n",
+        "print(a.sort())\n",
+        "# None"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "vHEPkCU0k4UX",
+        "outputId": "5f7bdd1e-f031-4c80-a2f3-06f579c4796b"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "None\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# 리스트 내 원소의 개수 세기\n",
+        "a=[8,6,8,2,8]\n",
+        "print(a.count(8))\n",
+        "\n",
+        "# 리스트 내 원소의 인덱스 찾기\n",
+        "print(a.index(2))\n",
+        "\n",
+        "# 리스트 내 원소 모두 삭제\n",
+        "a.clear()\n",
+        "print(a)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "bprqzg_EoI85",
+        "outputId": "1bf67eaa-ef42-49c6-abe8-1f64d9706ec7"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "3\n",
+            "3\n",
+            "[]\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# 딕셔너리\n",
+        "menu = {}\n",
+        "menu[\"떡볶이\"]=3000\n",
+        "print(menu)\n",
+        "\n",
+        "menu[\"김밥\"]=1000\n",
+        "menu[\"라면\"]=2000\n",
+        "print(menu)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "071PyC0mqQaB",
+        "outputId": "85ed9232-257d-43be-b0d0-206aafc86f66"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "{'떡볶이': 3000}\n",
+            "{'떡볶이': 3000, '김밥': 1000, '라면': 2000}\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(menu['라면'])"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "e2lkXKHIq1AK",
+        "outputId": "7efc7680-4990-473d-fa00-487e9fdb2051"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "2000\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(menu.keys())\n",
+        "# 출력결과 : dict_keys(['떡볶이', '김밥', '라면'])\n",
+        "\n",
+        "print(menu.values())\n",
+        "# 출력결과 : dict_values([3000, 1000, 2000])\n",
+        "\n",
+        "print(menu.items())\n",
+        "# 출력결과 : dict_items([('떡볶이', 3000), ('김밥', 1000), ('라면', 2000)])"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "bX9UpuZZrC7x",
+        "outputId": "130e2084-f27d-438f-8c2a-300f5dd7ff0c"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "dict_keys(['떡볶이', '김밥', '라면'])\n",
+            "dict_values([3000, 1000, 2000])\n",
+            "dict_items([('떡볶이', 3000), ('김밥', 1000), ('라면', 2000)])\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# 딕셔너리 검색\n",
+        "print(menu.get('김밥'))\n",
+        "# 1000\n",
+        "\n",
+        "print(menu.get('빵'))\n",
+        "# None"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Ek2zAfMdrkcB",
+        "outputId": "b37c933a-ae28-4075-9b20-4af8d14d7977"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "1000\n",
+            "None\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "menu = {'떡볶이':3000, '김밥':1000, '라면':2000}\n",
+        "print(menu.get('어묵', 'not found'))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "gY8V4n7rYllK",
+        "outputId": "f04e5435-8479-471a-b5d4-9a425db1b14d"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "not found\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# 리스트 내포 형식\n",
+        "my_list = [ -20, -10, 0, 10, 20 ]\n",
+        "print([x for x in my_list])"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Ek_6ndDns7Yr",
+        "outputId": "30e0e6ff-d4f1-46ab-ecb6-af2505bda7cb"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[-20, -10, 0, 10, 20]\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print([x/2 for x in my_list])"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "B2RhwRtxtczq",
+        "outputId": "8aaac1a6-274e-459c-90c7-d32a92932262"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[-10.0, -5.0, 0.0, 5.0, 10.0]\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print([x+5 for x in my_list])"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "8qmOivq_trgJ",
+        "outputId": "66793ff8-34d2-4b85-fcd3-5bb95b468125"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[-15, -5, 5, 15, 25]\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# print([1/x for x in my_list])\n",
+        "# x가 0이 될수 있으니 오류 발생"
+      ],
+      "metadata": {
+        "id": "BeYFEh13t3u6"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "list1= [-20, -10, 0, 10, 20]\n",
+        "print([x/2 for x in list1 if x>0 ])"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "jzxWvaz-kVg8",
+        "outputId": "6688dbdd-1dcc-4e70-b1d8-18148927db2c"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[5.0, 10.0]\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "alpha = [chr(n) for n in range(97, 97+26)]\n",
+        "# 아스키코드에서 97은 소문자 a\n",
+        "print(alpha)\n",
+        "print()\n",
+        "\n",
+        "print(chr(97))\n",
+        "print(chr(98))"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "m9L7fWxekGSU",
+        "outputId": "f4b808ad-132f-408d-b8ec-2387f62f8031"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']\n",
+            "\n",
+            "a\n",
+            "b\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
